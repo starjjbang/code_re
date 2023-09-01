@@ -52,12 +52,12 @@ GWAS_run <- function(exp_no,lab_1,lab_2){
 #GWAS_run("3","G1","G3")
 #GWAS_run("3","G1","G4")
 #GWAS_run("4","G2","G3")
-#GWAS_run("4","G2","G4")
-#GWAS_run("4","G3","G4")
+#GWAS_run("5","G2","G4")
+#GWAS_run("6","G3","G4")
 
-exp_no = "4"
+exp_no = "5"
 lab_1 = "G2"
-lab_2 = "G3"
+lab_2 = "G4"
 #ref_na = "test01rest.assoc"
 ref_na = "5_fisher_total.assoc.fisher"
 
@@ -65,6 +65,8 @@ fig_lab = paste0(exp_no,'_',lab_1,'_',lab_2)
 re_dir = paste0('/home/starjjbang/an_proj/4_GWAS/result/',fig_lab,'/')
 in_dat_f = paste0(re_dir,'plink_result/',ref_na)
 re_dat = data.table::fread(in_dat_f)
+head(re_dat)
+unique(re_dat$P)
 m(x = re_dat, chr = "CHR", bp = "BP", p = "P", snp = "SNP",
   col = c("#BBC814",  "#0A4A61"), 
   suggestiveline = -log10(5e-05), 
